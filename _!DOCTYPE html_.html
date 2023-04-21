@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DARK ROOM></title>
+        <link rel="stylesheet" type="text/css" href="wrongplace.mp3">
+        <style>
+            body {
+                background-color: black;
+                background-image: url(https://images.pexels.com/photos/162389/lost-places-old-decay-ruin-162389.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+                color: white;
+                background-size: cover;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                font-size: 24px;
+                font-family: 'Courier New', monospace;
+                text-align: center;
+             }
+        </style>
+        <script>
+
+            function startGame() {
+                document.getElementById("output").innerHTML = "You find yourself in a dark room. What do you do?";
+            }
+
+            function tryLooking() {
+                document.getElementById("output").innerHTML = "You see a door and a window. The door is locked.";
+                document.getElementById(input).value = "";
+              }
+
+            function openDoor() {
+                document.getElementById("output").innerHTML = "The door is locked. You cant open it.";
+                document.getElementById("input").value = "";
+            }
+
+            function breakWindow() {
+                document.getElementById("output").style.fontSize = "36px";
+                document.getElementById("output").innerHTML = "You break the window and climb out. You escaped";
+                document.getElementById("input").style.display = "none";
+            }
+            
+               </script>
+            </head>
+            <body onload="startGame()">
+                <h1 style="font-size: 48px; font-family: 'Comic Sans MS' , cursive;">DARK ROOM</h1>
+                <p id="output"></p>
+                <input type="text" id="input" onkeydown="if (event.keycode == 13) { evaluateInput(); }">
+                <script>
+                    function evaluateInput() {
+                        var input = document.getElementById("input").value.toLowerCase(); 
+                        if (input == "try looking") {
+                        tryLooking();
+                    } else if (input == "open door") {
+                        openDoor();
+                    } else if (inut == "break window") {
+                        breakWindow();
+                    } else {
+                      document.getElementById("output").innerHTML = "I dont understand. Try again.";
+                      document.getElementById("inout").value = "";
+                    } 
+                  }
+                </script>
+            </body>
+      </html>

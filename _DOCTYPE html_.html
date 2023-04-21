@@ -1,0 +1,55 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <title>Dark Room</title>
+        <style>
+        body {
+            background-color: black;
+            color: white;
+            font-size: 24px;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+          }   
+      </style>
+      </script>
+          function startGame() {
+            document.getElementById("output").innerHTML = "you are in a scary dark room, what do you do?"
+          }  
+
+          function look() {
+            document.getElementbyId("output").innerHTML = "you see a door, do you open it?"
+            document.getElementbyId("input").value = "";
+          }
+
+          function openDoor() {
+            document.getElementById("output").innerHTML = "The door is locked. You can't open it.";
+            document.getElementById("input").value = "";
+          }
+    
+          function breakWindow() {
+            document.getElementById("output").innerHTML = "You break the window and climb out. You escaped!";
+            document.getElementById("input").value = "";
+          }
+        </script>
+      </head>
+      <body onload="startGame()">
+        <h1 style="font-size: 48px; font-family: 'Comic Sans MS', cursive;">Dark Room</h1>
+        <p id="output"></p>
+        <input type="text" id="input" onkeydown="if (event.keyCode == 13) { evaluateInput(); }">
+        <script>
+          function evaluateInput() {
+            var input = document.getElementById("input").value.toLowerCase();
+            if (input == "look") {
+              look();
+            } else if (input == "open door") {
+              openDoor();
+            } else if (input == "break window") {
+              breakWindow();
+            } else {
+              document.getElementById("output").innerHTML = "I don't understand. Try again.";
+              document.getElementById("input").value = "";
+            }
+          }
+        </script>
+      </body>
+    </html>
